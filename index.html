@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body{
+            background-color: rgb(186, 228, 228);
+        }
+        .container{
+            background-color: rgb(239, 234, 176);
+            width: 400px;
+            margin: 200px auto;
+            border: 1px solid black;
+            border-radius: 50px;
+            padding: 20px 20px;            
+        }
+        h1{
+            align-items: center;
+            text-decoration: underline;
+        }
+        li{
+            margin: 10px;
+        }
+        input{
+            padding: 0px 10px;
+        }
+        button{
+            background-color: white;
+            border: 2px solid black;
+            color: black;
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-12">
+
+                <h1>To-Do List</h1>
+                <input id="input" placeholder="Enter the items :">
+                <button onclick="add()">Add</button>
+                <ul id="listitem">
+                    <li>Item no 1
+                        <button onclick="deleteitems(event)">Delete</button>
+                    </li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+        <script>
+            var input = document.getElementById("input")
+            var ul = document.getElementById("listitem")
+            function add(){
+                var listitems = document.createElement("li")
+                listitems.innerHTML = input.value + " " + "<button onClick='deleteitems(event)'>Delete</button>"
+                ul.append(listitems)
+            }
+            
+            function deleteitems(event)
+        {
+            event.target.parentElement.remove()
+        }
+    </script>
+</body>
+</html>
